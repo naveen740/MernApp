@@ -5,7 +5,7 @@ import Alert from './Alert';
 
 const Register = ({ onToggle, onRegistrationSuccess }) => {
   const [registerData, setRegisterData] = useState({
-    name: '',
+    username: '',
     email: '',
     password: '',
     confirmPassword: '',
@@ -17,8 +17,8 @@ const Register = ({ onToggle, onRegistrationSuccess }) => {
     let valid = true;
     const newErrors = {};
 
-    if (!registerData.name) {
-      newErrors.name = 'Name is required';
+    if (!registerData.username) {
+      newErrors.username = 'Username is required';
       valid = false;
     }
 
@@ -64,13 +64,13 @@ const Register = ({ onToggle, onRegistrationSuccess }) => {
   return (
     <div className="auth-container">
       <h1>Register</h1>
-      {errorMessage && <Alert message={errorMessage} />}
+      {errorMessage && <Alert message={errorMessage} />} {/* Display alert if error message exists */}
       <form onSubmit={handleRegisterSubmit}>
         <label>
-          Name:
-          <input type="text" name="name" value={registerData.name} onChange={handleRegisterChange} />
+          Username:
+          <input type="text" name="username" value={registerData.username} onChange={handleRegisterChange} />
         </label>
-        {errors.name && <p className="error-message">{errors.name}</p>}
+        {errors.username && <p className="error-message">{errors.username}</p>}
         <br />
         <label>
           Email:
