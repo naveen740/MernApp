@@ -5,7 +5,7 @@ import Alert from './Alert';
 
 const Register = ({ onToggle, onRegistrationSuccess }) => {
   const [registerData, setRegisterData] = useState({
-    username: '',
+    name: '',
     email: '',
     password: '',
     confirmPassword: '',
@@ -17,8 +17,8 @@ const Register = ({ onToggle, onRegistrationSuccess }) => {
     let valid = true;
     const newErrors = {};
 
-    if (!registerData.username) {
-      newErrors.username = 'Username is required';
+    if (!registerData.name) {
+      newErrors.name = 'Name is required';
       valid = false;
     }
 
@@ -67,10 +67,10 @@ const Register = ({ onToggle, onRegistrationSuccess }) => {
       {errorMessage && <Alert message={errorMessage} />}
       <form onSubmit={handleRegisterSubmit}>
         <label>
-          Username:
-          <input type="text" name="username" value={registerData.username} onChange={handleRegisterChange} />
+          Name:
+          <input type="text" name="name" value={registerData.name} onChange={handleRegisterChange} />
         </label>
-        {errors.username && <p className="error-message">{errors.username}</p>}
+        {errors.name && <p className="error-message">{errors.name}</p>}
         <br />
         <label>
           Email:
